@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannabis Stock Screener - DankReports</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .filter-group select {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .filter-group select:hover {
+            border-color: #667eea;
+        }
+
+        .stats {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #667eea;
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+
+        th:hover {
+            background: #5568d3;
+        }
+
+        th.sorted-asc::after {
+            content: ' ▲';
+            font-size: 0.8rem;
+        }
+
+        th.sorted-desc::after {
+            content: ' ▼';
+            font-size: 0.8rem;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        tr:hover {
+            background: #f8f9ff;
+        }
+
+        .positive {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .negative {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .ticker {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #ef4444;
+            font-size: 1.1rem;
+        }
+
+        .last-update {
+            text-align: center;
+            color: #666;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌿 Cannabis Stock Screener</h1>
+            <p>Real-time tracking of the top 25 cannabis stocks</p>
+        </div>
+
+        <div class="controls">
+            <div class="filter-group">
+                <label for="regionFilter">Filter by Region:</label>
+                <select id="regionFilter">
+                    <option value="all">All Regions</option>
+                    <option value="US MSO">US MSOs</option>
+                    <option value="Canadian LP">Canadian LPs</option>
+                    <option value="International">International</option>
+                </select>
+
+                <label for="sortBy">Sort by:</label>
+                <select id="sortBy">
+                    <option value="changePercent">% Change</option>
+                    <option value="price">Price</option>
+                    <option value="marketCap">Market Cap</option>
+                    <option value="volume">Volume</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-label">Total Stocks</div>
+                <div class="stat-value" id="totalStocks">25</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Gainers</div>
+                <div class="stat-value positive" id="gainers">-</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Losers</div>
+                <div class="stat-value negative" id="losers">-</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Avg % Change</div>
+                <div class="stat-value" id="avgChange">-</div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="stockTable">
+                <thead>
+                    <tr>
+                        <th data-sort="ticker">Ticker</th>
+                        <th data-sort="company">Company</th>
+                        <th data-sort="region">Region</th>
+                        <th data-sort="price">Price</th>
+                        <th data-sort="changePercent">% Change</th>
+                        <th data-sort="change">$ Change</th>
+                        <th data-sort="marketCap">Market Cap</th>
+                        <th data-sort="volume">Volume</th>
+                    </tr>
+                </thead>
+                <tbody id="stockTableBody">
+                    <tr>
+                        <td colspan="8" class="loading">Loading stock data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="last-update" id="lastUpdate"></div>
+    </div>
+
+    <script>
+        // Finnhub API Configuration
+        const FINNHUB_API_KEY = 'd4stah9r01qhr5tmvm30d4stah9r01qhr5tmvm3g';
+        const FINNHUB_BASE_URL = 'https://finnhub.io/api/v1';
+        const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+
+        // Cannabis stocks list
+        const stocks = [
+            // US MSOs
+            { ticker: 'GTBIF', company: 'Green Thumb Industries', region: 'US MSO' },
+            { ticker: 'TCNNF', company: 'Trulieve Cannabis', region: 'US MSO' },
+            { ticker: 'CURLF', company: 'Curaleaf Holdings', region: 'US MSO' },
+            { ticker: 'VRNOF', company: 'Verano Holdings', region: 'US MSO' },
+            { ticker: 'CRLBF', company: 'Cresco Labs', region: 'US MSO' },
+            { ticker: 'AYRWF', company: 'AYR Wellness', region: 'US MSO' },
+            { ticker: 'CCHWF', company: 'Columbia Care', region: 'US MSO' },
+            { ticker: 'ACRHF', company: 'Ascend Wellness', region: 'US MSO' },
+            { ticker: 'GLASF', company: 'Glass House Brands', region: 'US MSO' },
+            { ticker: 'JUSHF', company: 'Jushi Holdings', region: 'US MSO' },
+            { ticker: 'PLNHF', company: 'Planet 13', region: 'US MSO' },
+            { ticker: 'GNLN', company: 'Greenlane Holdings', region: 'US MSO' },
+            { ticker: 'TERRP', company: 'TerrAscend', region: 'US MSO' },
+            { ticker: 'AWSFF', company: 'Ascend Wellness Holdings', region: 'US MSO' },
+            
+            // Canadian LPs
+            { ticker: 'CGC', company: 'Canopy Growth', region: 'Canadian LP' },
+            { ticker: 'TLRY', company: 'Tilray Brands', region: 'Canadian LP' },
+            { ticker: 'ACB', company: 'Aurora Cannabis', region: 'Canadian LP' },
+            { ticker: 'SNDL', company: 'SNDL Inc', region: 'Canadian LP' },
+            { ticker: 'HEXO', company: 'HEXO Corp', region: 'Canadian LP' },
+            { ticker: 'OGI', company: 'Organigram Holdings', region: 'Canadian LP' },
+            { ticker: 'CRON', company: 'Cronos Group', region: 'Canadian LP' },
+            { ticker: 'VFF', company: 'Village Farms', region: 'Canadian LP' },
+            { ticker: 'WEED.TO', company: 'Canopy Growth (TSX)', region: 'Canadian LP' },
+            { ticker: 'TLRY.TO', company: 'Tilray (TSX)', region: 'Canadian LP' },
+            
+            // International
+            { ticker: 'CANN', company: 'Canaan Inc', region: 'International' }
+        ];
+
+        let stockData = [];
+        let currentSort = { column: 'changePercent', direction: 'desc' };
+        let currentFilter = 'all';
+
+        // Fetch stock data from Finnhub
+        async function fetchStockData() {
+            const tbody = document.getElementById('stockTableBody');
+            tbody.innerHTML = '<tr><td colspan="8" class="loading">Fetching live prices...</td></tr>';
+
+            try {
+                const promises = stocks.map(async stock => {
+                    try {
+                        // Use quote endpoint which is more reliable for OTC stocks
+                        const quoteUrl = `${FINNHUB_BASE_URL}/quote?symbol=${stock.ticker}&token=${FINNHUB_API_KEY}`;
+                        const response = await fetch(quoteUrl);
+                        
+                        if (!response.ok) {
+                            console.error(`Failed to fetch ${stock.ticker}:`, response.statusText);
+                            return null;
+                        }
+
+                        const data = await response.json();
+                        
+                        // Check if we got valid data
+                        if (!data || data.c === 0 || data.c === null) {
+                            console.warn(`No data for ${stock.ticker}`);
+                            return null;
+                        }
+
+                        return {
+                            ...stock,
+                            price: data.c, // current price
+                            change: data.d, // change
+                            changePercent: data.dp, // percent change
+                            high: data.h,
+                            low: data.l,
+                            open: data.o,
+                            previousClose: data.pc,
+                            timestamp: data.t,
+                            volume: 0, // Finnhub free doesn't provide volume for OTC
+                            marketCap: 0 // Would need separate API call
+                        };
+                    } catch (error) {
+                        console.error(`Error fetching ${stock.ticker}:`, error);
+                        return null;
+                    }
+                });
+
+                const results = await Promise.all(promises);
+                stockData = results.filter(data => data !== null);
+
+                if (stockData.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="8" class="error">No stock data available. Prices may update shortly.</td></tr>';
+                    return;
+                }
+
+                updateStats();
+                renderTable();
+                updateLastUpdate();
+            } catch (error) {
+                console.error('Error fetching stock data:', error);
+                tbody.innerHTML = '<tr><td colspan="8" class="error">Error loading stock data. Please refresh the page.</td></tr>';
+            }
+        }
+
+        // Update statistics
+        function updateStats() {
+            const gainers = stockData.filter(s => s.changePercent > 0).length;
+            const losers = stockData.filter(s => s.changePercent < 0).length;
+            const avgChange = stockData.reduce((sum, s) => sum + s.changePercent, 0) / stockData.length;
+
+            document.getElementById('totalStocks').textContent = stockData.length;
+            document.getElementById('gainers').textContent = gainers;
+            document.getElementById('losers').textContent = losers;
+            
+            const avgChangeEl = document.getElementById('avgChange');
+            avgChangeEl.textContent = avgChange.toFixed(2) + '%';
+            avgChangeEl.className = 'stat-value ' + (avgChange >= 0 ? 'positive' : 'negative');
+        }
+
+        // Render table
+        function renderTable() {
+            let data = [...stockData];
+
+            // Apply filter
+            if (currentFilter !== 'all') {
+                data = data.filter(stock => stock.region === currentFilter);
+            }
+
+            // Apply sort
+            data.sort((a, b) => {
+                let aVal = a[currentSort.column];
+                let bVal = b[currentSort.column];
+                
+                if (typeof aVal === 'string') {
+                    return currentSort.direction === 'asc' 
+                        ? aVal.localeCompare(bVal)
+                        : bVal.localeCompare(aVal);
+                }
+                
+                return currentSort.direction === 'asc'
+                    ? aVal - bVal
+                    : bVal - aVal;
+            });
+
+            const tbody = document.getElementById('stockTableBody');
+            tbody.innerHTML = data.map(stock => `
+                <tr>
+                    <td class="ticker">${stock.ticker}</td>
+                    <td>${stock.company}</td>
+                    <td>${stock.region}</td>
+                    <td>$${stock.price.toFixed(2)}</td>
+                    <td class="${stock.changePercent >= 0 ? 'positive' : 'negative'}">
+                        ${stock.changePercent >= 0 ? '+' : ''}${stock.changePercent.toFixed(2)}%
+                    </td>
+                    <td class="${stock.change >= 0 ? 'positive' : 'negative'}">
+                        ${stock.change >= 0 ? '+' : ''}$${stock.change.toFixed(2)}
+                    </td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            `).join('');
+
+            // Update sort indicators
+            document.querySelectorAll('th').forEach(th => {
+                th.classList.remove('sorted-asc', 'sorted-desc');
+                if (th.dataset.sort === currentSort.column) {
+                    th.classList.add(`sorted-${currentSort.direction}`);
+                }
+            });
+        }
+
+        // Update last update time
+        function updateLastUpdate() {
+            const now = new Date();
+            document.getElementById('lastUpdate').textContent = 
+                `Last updated: ${now.toLocaleTimeString()} (Refreshes every 5 minutes)`;
+        }
+
+        // Event listeners
+        document.getElementById('regionFilter').addEventListener('change', (e) => {
+            currentFilter = e.target.value;
+            renderTable();
+        });
+
+        document.getElementById('sortBy').addEventListener('change', (e) => {
+            currentSort.column = e.target.value;
+            renderTable();
+        });
+
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                const column = th.dataset.sort;
+                if (currentSort.column === column) {
+                    currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+                } else {
+                    currentSort.column = column;
+                    currentSort.direction = 'desc';
+                }
+                renderTable();
+            });
+        });
+
+        // Initial load and refresh
+        fetchStockData();
+        setInterval(fetchStockData, CACHE_DURATION);
+    </script>
+</body>
+</html>
