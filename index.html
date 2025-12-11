@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STONKS Cannabis Stock Screener | US MSO vs Canadian LP Mispricing Analysis | CBDT Framework</title>
+    <meta name="description" content="Cannabis stock screener exposing mispricing between US MSOs and Canadian LPs. Canadian LPs receive no benefit from 280E elimination or SAFE Banking yet often rally on reform news. Track 25 cannabis stocks with CBDT Framework state-level analysis and federal reform impact scoring.">
+    <meta name="keywords" content="cannabis stocks, MSO stocks, Canadian LP, 280E tax, SAFE Banking, Schedule 3, cannabis investing, Trulieve, Curaleaf, Green Thumb, Tilray, Canopy Growth, CBDT Framework, cannabis market analysis">
+    <meta name="author" content="Daniel Kief">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://stonks.dankreports.com/">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stonks.dankreports.com/">
+    <meta property="og:title" content="STONKS | Cannabis Stock Screener with 280E/SAFE Banking Impact Analysis">
+    <meta property="og:description" content="Exposing the mispricing between US MSOs (who benefit from federal reform) and Canadian LPs (who don't). Track 25 cannabis stocks with CBDT Framework analysis.">
+    <meta property="og:image" content="https://stonks.dankreports.com/og-image.jpg">
+    <meta property="og:site_name" content="Dan K Reports">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://stonks.dankreports.com/">
+    <meta name="twitter:title" content="STONKS | Cannabis Stock Screener with 280E/SAFE Banking Impact Analysis">
+    <meta name="twitter:description" content="Exposing the mispricing between US MSOs (who benefit from federal reform) and Canadian LPs (who don't). Track 25 cannabis stocks with CBDT Framework analysis.">
+    <meta name="twitter:image" content="https://stonks.dankreports.com/og-image.jpg">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://stonks.dankreports.com/#application",
+          "name": "STONKS Cannabis Stock Screener",
+          "alternateName": "Cannabis MSO vs LP Mispricing Tracker",
+          "description": "Interactive cannabis stock screener exposing systematic mispricing between US Multi-State Operators (MSOs) who benefit from 280E elimination and SAFE Banking, versus Canadian Licensed Producers (LPs) who receive zero benefit from US federal reform yet often rally on reform news. Features CBDT Framework state-level market analysis with validated r=0.968 correlation.",
+          "url": "https://stonks.dankreports.com/",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Daniel Kief",
+            "url": "https://www.dankreports.com/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Dan K Reports",
+            "url": "https://www.dankreports.com/"
+          },
+          "datePublished": "2025-11-24T00:00:00Z",
+          "dateModified": "2025-12-10T00:00:00Z",
+          "featureList": [
+            "280E tax burden estimation for 14 US MSOs",
+            "SAFE Banking impact analysis",
+            "Canadian LP reform exposure warnings",
+            "CBDT Framework state-level scoring",
+            "Reform upside multiple calculations",
+            "Market cap and financial filtering",
+            "State footprint visualization"
+          ],
+          "screenshot": "https://stonks.dankreports.com/og-image.jpg"
+        },
+        {
+          "@type": "Dataset",
+          "@id": "https://stonks.dankreports.com/#dataset",
+          "name": "Cannabis Stock 280E/SAFE Banking Impact Dataset",
+          "description": "Dataset of 25 cannabis stocks categorized by federal reform impact. Includes 14 US MSOs with estimated $604M combined annual 280E tax burden, 10 Canadian LPs with zero US reform exposure, and 1 international operator. State-level CBDT scores for market quality assessment.",
+          "creator": {
+            "@type": "Person",
+            "name": "Daniel Kief"
+          },
+          "license": "https://creativecommons.org/licenses/by/4.0/",
+          "keywords": [
+            "280E tax",
+            "SAFE Banking",
+            "cannabis MSO",
+            "Canadian LP",
+            "Schedule 3",
+            "cannabis stocks",
+            "CBDT Framework"
+          ],
+          "variableMeasured": [
+            {
+              "@type": "PropertyValue",
+              "name": "Estimated 280E Tax Burden",
+              "description": "Annual excess federal taxes paid due to IRC Section 280E disallowing business deductions",
+              "unitText": "USD millions"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "CBDT Score (ΔU)",
+              "description": "Consumer-Driven Black Market Displacement score measuring legal market competitiveness",
+              "unitText": "dimensionless"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Reform Upside Multiple",
+              "description": "Estimated P/E expansion potential from 280E elimination",
+              "unitText": "multiple"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://stonks.dankreports.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why do Canadian cannabis stocks rally on US federal reform news when they receive no benefit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This is the core mispricing this screener exposes. Canadian Licensed Producers (Tilray, Canopy Growth, Aurora, Cronos, SNDL, etc.) operate in federally legal Canadian markets and have NO US plant-touching operations. When 280E is eliminated via Schedule III rescheduling, US MSOs save $2+ billion annually in excess taxes—Canadian LPs save $0. When SAFE Banking passes, US MSOs gain access to traditional banking and capital markets at lower rates—Canadian LPs already have this. Yet retail investors often pile into Canadian LPs on reform headlines, creating temporary rallies disconnected from fundamental value. This screener helps investors identify which companies actually benefit from US federal reform."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the 280E tax burden and how does it affect US cannabis companies?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "IRC Section 280E was enacted in 1982 to prevent drug traffickers from deducting business expenses. Because cannabis remains Schedule I federally, legal state-licensed operators cannot deduct ordinary business expenses (rent, payroll, marketing, utilities) for federal tax purposes—only Cost of Goods Sold. This creates effective tax rates of 60-80% versus 21% for normal businesses. US MSOs collectively pay $2+ billion annually in excess taxes. The 14 US MSOs tracked in this screener have an estimated combined 280E burden of $604M annually. Schedule III rescheduling would eliminate 280E application, immediately improving profitability by 40-70% for most operators. Canadian LPs, operating in federally legal markets, have never been subject to 280E and receive zero benefit from its elimination."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the CBDT Framework and how does it score cannabis markets?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Consumer-Driven Black Market Displacement Theory (CBDT) is a validated predictive framework for legal cannabis market share. The formula ΔU = 4(−g) + D + 1.2S + F + 0.6E − 0.8F_frag incorporates six variables: price gap (g), retail density (D), safety standards (S), convenience factors (F), enforcement intensity (E), and local ban fragmentation (F_frag). The framework achieves r=0.968 correlation across 24 US states with 5% mean absolute error. This screener uses CBDT scores to evaluate the quality of each MSO's state footprint. Higher average ΔU indicates operations in states with stronger legal market capture, suggesting better long-term fundamentals."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which cannabis stocks benefit most from 280E elimination?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "US Multi-State Operators with the highest current 280E tax burdens benefit most from elimination. Based on this screener's estimates: Curaleaf ($110M annual burden), Trulieve ($95M), Verano ($88M), Green Thumb Industries ($85M), and Cresco Labs ($65M) are the top five beneficiaries. These companies would see immediate profitability improvements of 1.3x-2.0x on 280E elimination alone. Canadian LPs (Tilray, Canopy, Aurora, Cronos, SNDL, etc.) receive $0 benefit as they operate in federally legal markets and have never been subject to 280E taxation."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://stonks.dankreports.com/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Dan K Reports",
+              "item": "https://www.dankreports.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "STONKS Cannabis Stock Screener",
+              "item": "https://stonks.dankreports.com/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        body {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            background: linear-gradient(135deg, #030712 0%, #111827 50%, #000000 100%);
+        }
+        
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .glow-emerald {
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b5563;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState, useMemo, useEffect } = React;
+        
+        // ============================================
+        // FINNHUB API CONFIGURATION
+        // ============================================
+        // FIXED: Switched from Twelve Data to Finnhub
+        // Reason: Twelve Data free tier does NOT support OTC stocks
+        // Your 14 US MSO stocks are all OTC, so Twelve Data returned no data
+        // Finnhub free tier DOES support OTC stocks
+        const FINNHUB_API_KEY = 'd4stah9r01qhr5tmvm30d4stah9r01qhr5tmvm3g';
+        const FINNHUB_BASE_URL = 'https://finnhub.io/api/v1';
+        
+        // Cache duration in milliseconds (5 minutes)
+        const CACHE_DURATION = 5 * 60 * 1000;
+        
+        // ============================================
+        // PRICE DATA CACHE
+        // ============================================
+        const priceCache = {
+            data: {},
+            timestamp: null,
+            isValid() {
+                return this.timestamp && (Date.now() - this.timestamp) < CACHE_DURATION;
+            }
+        };
+        
+        // CBDT Framework State Data - from validated 24-state dataset
+        const CBDT_STATE_DATA = {
+            'Oregon': { rank: 1, deltaU: 3.43, predicted: 97, observed: 82, tercile: 'Top' },
+            'Colorado': { rank: 2, deltaU: 3.15, predicted: 96, observed: 84, tercile: 'Top' },
+            'Michigan': { rank: 3, deltaU: 2.72, predicted: 94, observed: 85, tercile: 'Top' },
+            'Nevada': { rank: 4, deltaU: 2.72, predicted: 94, observed: 75, tercile: 'Top' },
+            'Maine': { rank: 5, deltaU: 2.30, predicted: 91, observed: 68, tercile: 'Top' },
+            'Washington': { rank: 6, deltaU: 2.05, predicted: 89, observed: 60, tercile: 'Top' },
+            'Vermont': { rank: 7, deltaU: 1.95, predicted: 88, observed: 62, tercile: 'Top' },
+            'Arizona': { rank: 8, deltaU: 1.78, predicted: 86, observed: 58, tercile: 'Top' },
+            'Massachusetts': { rank: 9, deltaU: 1.45, predicted: 81, observed: 55, tercile: 'Mid' },
+            'Montana': { rank: 10, deltaU: 1.38, predicted: 80, observed: 56, tercile: 'Mid' },
+            'New Mexico': { rank: 11, deltaU: 1.25, predicted: 78, observed: 54, tercile: 'Mid' },
+            'Alaska': { rank: 12, deltaU: 1.10, predicted: 75, observed: 48, tercile: 'Mid' },
+            'Illinois': { rank: 13, deltaU: 0.95, predicted: 72, observed: 52, tercile: 'Mid' },
+            'Missouri': { rank: 14, deltaU: 0.88, predicted: 71, observed: 54, tercile: 'Mid' },
+            'Maryland': { rank: 15, deltaU: 0.75, predicted: 68, observed: 50, tercile: 'Mid' },
+            'Minnesota': { rank: 16, deltaU: 0.60, predicted: 65, observed: 46, tercile: 'Mid' },
+            'Rhode Island': { rank: 17, deltaU: 0.48, predicted: 62, observed: 48, tercile: 'Mid' },
+            'California': { rank: 18, deltaU: 0.16, predicted: 54, observed: 50, tercile: 'Mid' },
+            'New Jersey': { rank: 19, deltaU: 0.10, predicted: 52, observed: 45, tercile: 'Mid' },
+            'Connecticut': { rank: 20, deltaU: -0.02, predicted: 49, observed: 42, tercile: 'Bottom' },
+            'Ohio': { rank: 21, deltaU: 0.26, predicted: 56, observed: 40, tercile: 'Bottom' },
+            'Delaware': { rank: 22, deltaU: -0.07, predicted: 48, observed: 35, tercile: 'Bottom' },
+            'Virginia': { rank: 23, deltaU: -0.20, predicted: 45, observed: 32, tercile: 'Bottom' },
+            'New York': { rank: 24, deltaU: -0.41, predicted: 40, observed: 30, tercile: 'Bottom' },
+            'Florida': { rank: 25, deltaU: 1.60, predicted: 83, observed: 65, tercile: 'Top' },
+            'Pennsylvania': { rank: 26, deltaU: 0.45, predicted: 61, observed: 45, tercile: 'Mid' },
+        };
+
+        // Complete stock data for all 26 tickers
+        const CANNABIS_STOCKS = [
+            // US MSOs - Subject to 280E/SAFE Banking Impact
+            { 
+                ticker: 'TCNNF', 
+                name: 'Trulieve Cannabis Corp',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 1020,
+                revenue: 1190,
+                grossMargin: 59,
+                ebitdaMargin: 23,
+                cashFlow: 173,
+                debt: 449,
+                states: ['Florida', 'Arizona', 'Pennsylvania', 'Maryland', 'Ohio', 'Connecticut', 'Georgia', 'West Virginia'],
+                primaryState: 'Florida',
+                revenueByState: { 'Florida': 68, 'Arizona': 12, 'Pennsylvania': 8, 'Other': 12 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 95,
+                status: '280E Revolt',
+                description: 'Florida-dominant MSO with 68% state revenue concentration. Leading 280E legal challenge.',
+            },
+            { 
+                ticker: 'CURLF', 
+                name: 'Curaleaf Holdings',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 1990,
+                revenue: 1280,
+                grossMargin: 50,
+                ebitdaMargin: 18,
+                cashFlow: 125,
+                debt: 680,
+                states: ['New York', 'New Jersey', 'Florida', 'Illinois', 'Massachusetts', 'Arizona', 'Pennsylvania', 'Connecticut', 'Maryland', 'Nevada', 'Colorado', 'Michigan', 'Missouri', 'Maine', 'Ohio', 'North Dakota'],
+                primaryState: 'New Jersey',
+                revenueByState: { 'New Jersey': 18, 'Florida': 16, 'New York': 14, 'Illinois': 12, 'Other': 40 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 110,
+                status: '280E Revolt',
+                description: 'Largest US footprint with 17 states. Most diversified MSO.',
+            },
+            { 
+                ticker: 'GTBIF', 
+                name: 'Green Thumb Industries',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 2850,
+                revenue: 1080,
+                grossMargin: 52,
+                ebitdaMargin: 25,
+                cashFlow: 185,
+                debt: 380,
+                states: ['Illinois', 'Pennsylvania', 'New Jersey', 'New York', 'Ohio', 'Maryland', 'Connecticut', 'Massachusetts', 'Nevada', 'Minnesota', 'Virginia', 'Florida', 'Rhode Island'],
+                primaryState: 'Illinois',
+                revenueByState: { 'Illinois': 28, 'Pennsylvania': 18, 'New Jersey': 15, 'Other': 39 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 85,
+                status: 'Compliant',
+                description: 'Premium brand focus with RISE dispensaries. Best margins among Tier-1 MSOs.',
+            },
+            { 
+                ticker: 'CRLBF', 
+                name: 'Cresco Labs',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 420,
+                revenue: 760,
+                grossMargin: 48,
+                ebitdaMargin: 15,
+                cashFlow: 65,
+                debt: 420,
+                states: ['Illinois', 'Pennsylvania', 'Ohio', 'Florida', 'Massachusetts', 'Maryland', 'New York', 'Michigan'],
+                primaryState: 'Illinois',
+                revenueByState: { 'Illinois': 35, 'Pennsylvania': 22, 'Florida': 15, 'Other': 28 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 65,
+                status: '280E Revolt',
+                description: 'Wholesale-focused MSO with Sunnyside dispensaries. Leading CPG approach.',
+            },
+            { 
+                ticker: 'VRNOF', 
+                name: 'Verano Holdings',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 680,
+                revenue: 920,
+                grossMargin: 51,
+                ebitdaMargin: 20,
+                cashFlow: 95,
+                debt: 520,
+                states: ['Illinois', 'New Jersey', 'Florida', 'Pennsylvania', 'Ohio', 'Maryland', 'Connecticut', 'Massachusetts', 'Nevada', 'Michigan', 'Arizona'],
+                primaryState: 'Illinois',
+                revenueByState: { 'Illinois': 30, 'New Jersey': 20, 'Florida': 18, 'Other': 32 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 88,
+                status: 'Compliant',
+                description: 'Verano branded retail with strong wholesale. $80-100M annual 280E exposure.',
+            },
+            { 
+                ticker: 'TRSSF', 
+                name: 'TerrAscend Corp',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 380,
+                revenue: 320,
+                grossMargin: 54,
+                ebitdaMargin: 22,
+                cashFlow: 45,
+                debt: 280,
+                states: ['New Jersey', 'Pennsylvania', 'Maryland', 'Michigan', 'California'],
+                primaryState: 'New Jersey',
+                revenueByState: { 'New Jersey': 45, 'Pennsylvania': 25, 'Maryland': 15, 'Other': 15 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 32,
+                status: '280E Revolt',
+                description: 'Northeast-focused with premium Kind Tree and Gage brands.',
+            },
+            { 
+                ticker: 'CCHWF', 
+                name: 'Columbia Care',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 95,
+                revenue: 480,
+                grossMargin: 42,
+                ebitdaMargin: 8,
+                cashFlow: 15,
+                debt: 390,
+                states: ['New York', 'New Jersey', 'Virginia', 'Colorado', 'Delaware', 'Maryland', 'Ohio', 'Pennsylvania', 'West Virginia'],
+                primaryState: 'New York',
+                revenueByState: { 'New York': 25, 'Colorado': 18, 'New Jersey': 15, 'Other': 42 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 42,
+                status: 'Compliant',
+                description: 'Cannabist-branded retail. Cresco merger terminated.',
+            },
+            { 
+                ticker: 'JUSHF', 
+                name: 'Jushi Holdings',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 85,
+                revenue: 280,
+                grossMargin: 44,
+                ebitdaMargin: 10,
+                cashFlow: 12,
+                debt: 320,
+                states: ['Pennsylvania', 'Virginia', 'Illinois', 'Massachusetts', 'Ohio', 'Nevada', 'California'],
+                primaryState: 'Pennsylvania',
+                revenueByState: { 'Pennsylvania': 42, 'Virginia': 25, 'Illinois': 15, 'Other': 18 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 25,
+                status: 'Compliant',
+                description: 'BEYOND/HELLO retail brand. Pennsylvania and Virginia focused.',
+            },
+            { 
+                ticker: 'GLASF', 
+                name: 'Glass House Brands',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 310,
+                revenue: 210,
+                grossMargin: 48,
+                ebitdaMargin: 18,
+                cashFlow: 28,
+                debt: 85,
+                states: ['California'],
+                primaryState: 'California',
+                revenueByState: { 'California': 100 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 18,
+                status: 'Compliant',
+                description: 'California pure-play greenhouse cultivator. Lowest cost producer.',
+            },
+            { 
+                ticker: 'SHWZ', 
+                name: 'Medicine Man (Schwazze)',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 22,
+                revenue: 180,
+                grossMargin: 38,
+                ebitdaMargin: 5,
+                cashFlow: -8,
+                debt: 280,
+                states: ['Colorado', 'New Mexico'],
+                primaryState: 'Colorado',
+                revenueByState: { 'Colorado': 75, 'New Mexico': 25 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 15,
+                status: 'Distressed',
+                description: 'Colorado/New Mexico operator. Restructuring mode.',
+            },
+            { 
+                ticker: 'PLNHF', 
+                name: 'Planet 13 Holdings',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 125,
+                revenue: 110,
+                grossMargin: 52,
+                ebitdaMargin: 12,
+                cashFlow: 8,
+                debt: 45,
+                states: ['Nevada', 'California', 'Illinois', 'Florida'],
+                primaryState: 'Nevada',
+                revenueByState: { 'Nevada': 65, 'California': 20, 'Illinois': 10, 'Florida': 5 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 10,
+                status: 'Compliant',
+                description: 'Las Vegas superstore cannabis entertainment concept.',
+            },
+            { 
+                ticker: 'MRMD', 
+                name: 'MariMed Inc',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 145,
+                revenue: 155,
+                grossMargin: 50,
+                ebitdaMargin: 20,
+                cashFlow: 22,
+                debt: 65,
+                states: ['Massachusetts', 'Illinois', 'Maryland', 'Delaware', 'Missouri'],
+                primaryState: 'Massachusetts',
+                revenueByState: { 'Massachusetts': 45, 'Illinois': 25, 'Maryland': 15, 'Other': 15 },
+                tax280eExposure: 'High',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 14,
+                status: 'Compliant',
+                description: "Betty's Eddies edibles brand. Massachusetts anchor.",
+            },
+            { 
+                ticker: 'GDNSF', 
+                name: 'Grown Rogue Industries',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 35,
+                revenue: 45,
+                grossMargin: 42,
+                ebitdaMargin: 8,
+                cashFlow: 3,
+                debt: 18,
+                states: ['Oregon', 'Michigan'],
+                primaryState: 'Oregon',
+                revenueByState: { 'Oregon': 70, 'Michigan': 30 },
+                tax280eExposure: 'Moderate',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 4,
+                status: 'Compliant',
+                description: 'Oregon craft cultivator expanding to Michigan.',
+            },
+            { 
+                ticker: 'NVACF', 
+                name: 'Nova Cannabis',
+                type: 'US MSO',
+                country: 'US',
+                marketCap: 28,
+                revenue: 65,
+                grossMargin: 35,
+                ebitdaMargin: 4,
+                cashFlow: 2,
+                debt: 22,
+                states: ['California', 'Oregon'],
+                primaryState: 'California',
+                revenueByState: { 'California': 60, 'Oregon': 40 },
+                tax280eExposure: 'Moderate',
+                safeBankingImpact: 'High',
+                estimated280eTaxBurden: 5,
+                status: 'Compliant',
+                description: 'Value Buds retail in US West Coast markets.',
+            },
+            { 
+                ticker: 'INCR', 
+                name: 'InterCure Ltd',
+                type: 'International',
+                country: 'Israel/Germany',
+                marketCap: 180,
+                revenue: 140,
+                grossMargin: 38,
+                ebitdaMargin: 12,
+                cashFlow: 15,
+                debt: 45,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'None',
+                estimated280eTaxBurden: 0,
+                status: 'International',
+                description: 'Israeli medical cannabis. European expansion via Germany.',
+            },
+
+            { 
+                ticker: 'LOVFF', 
+                name: 'Decibel Cannabis',
+                type: 'Canadian LP',
+                country: 'Canada',
+                marketCap: 45,
+                revenue: 85,
+                grossMargin: 42,
+                ebitdaMargin: 15,
+                cashFlow: 10,
+                debt: 25,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'None',
+                estimated280eTaxBurden: 0,
+                status: 'Canadian',
+                description: 'Premium Canadian cannabis brands. No US exposure.',
+            },
+            { 
+                ticker: 'CBWTF', 
+                name: 'Auxly Cannabis Group',
+                type: 'Canadian LP',
+                country: 'Canada',
+                marketCap: 55,
+                revenue: 125,
+                grossMargin: 35,
+                ebitdaMargin: 8,
+                cashFlow: 6,
+                debt: 85,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'None',
+                estimated280eTaxBurden: 0,
+                status: 'Canadian',
+                description: 'Canadian 2.0 products focus. Imperial Brands partnership.',
+            },
+            // Canadian LPs - NO 280E or SAFE Banking Impact
+            { 
+                ticker: 'TLRY', 
+                name: 'Tilray Brands',
+                type: 'Canadian LP',
+                country: 'Canada',
+                marketCap: 1850,
+                revenue: 850,
+                grossMargin: 28,
+                ebitdaMargin: -5,
+                cashFlow: -45,
+                debt: 420,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'None',
+                estimated280eTaxBurden: 0,
+                status: 'Canadian',
+                description: 'Global cannabis and CPG. No US plant-touching operations.',
+            },
+            { 
+                ticker: 'CGC', 
+                name: 'Canopy Growth',
+                type: 'Canadian LP',
+                country: 'Canada',
+                marketCap: 680,
+                revenue: 280,
+                grossMargin: 18,
+                ebitdaMargin: -35,
+                cashFlow: -180,
+                debt: 850,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'Indirect',
+                estimated280eTaxBurden: 0,
+                status: 'Canadian',
+                description: 'Constellation-backed. Acreage call option for US entry.',
+            },
+            { 
+                ticker: 'ACB', 
+                name: 'Aurora Cannabis',
+                type: 'Canadian LP',
+                country: 'Canada',
+                marketCap: 320,
+                revenue: 220,
+                grossMargin: 32,
+                ebitdaMargin: -8,
+                cashFlow: -25,
+                debt: 180,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'None',
+                estimated280eTaxBurden: 0,
+                status: 'Canadian',
+                description: 'Medical cannabis focus. EU-GMP certified production.',
+            },
+            { 
+                ticker: 'CRON', 
+                name: 'Cronos Group',
+                type: 'Canadian LP',
+                country: 'Canada',
+                marketCap: 980,
+                revenue: 110,
+                grossMargin: 35,
+                ebitdaMargin: -20,
+                cashFlow: -45,
+                debt: 0,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'None',
+                estimated280eTaxBurden: 0,
+                status: 'Canadian',
+                description: 'Altria-backed. $800M+ cash. Waiting for US federal reform.',
+            },
+            { 
+                ticker: 'SNDL', 
+                name: 'SNDL Inc',
+                type: 'Canadian LP',
+                country: 'Canada',
+                marketCap: 580,
+                revenue: 920,
+                grossMargin: 22,
+                ebitdaMargin: 5,
+                cashFlow: 35,
+                debt: 120,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'None',
+                estimated280eTaxBurden: 0,
+                status: 'Canadian',
+                description: 'Diversified cannabis + liquor retail. Alcanna acquisition.',
+            },
+            { 
+                ticker: 'VFF', 
+                name: 'Village Farms International',
+                type: 'Canadian LP',
+                country: 'Canada',
+                marketCap: 180,
+                revenue: 340,
+                grossMargin: 28,
+                ebitdaMargin: 6,
+                cashFlow: 15,
+                debt: 95,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'None',
+                estimated280eTaxBurden: 0,
+                status: 'Canadian',
+                description: 'Greenhouse operator. Pure Sunfarms JV. Produce + cannabis.',
+            },
+            { 
+                ticker: 'OGI', 
+                name: 'Organigram Holdings',
+                type: 'Canadian LP',
+                country: 'Canada',
+                marketCap: 185,
+                revenue: 180,
+                grossMargin: 32,
+                ebitdaMargin: 8,
+                cashFlow: 12,
+                debt: 45,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'None',
+                estimated280eTaxBurden: 0,
+                status: 'Canadian',
+                description: 'Atlantic Canada cultivator. BAT investment partnership.',
+            },
+            { 
+                ticker: 'HITI', 
+                name: 'High Tide Inc',
+                type: 'Canadian LP',
+                country: 'Canada',
+                marketCap: 290,
+                revenue: 520,
+                grossMargin: 26,
+                ebitdaMargin: 8,
+                cashFlow: 28,
+                debt: 65,
+                states: [],
+                primaryState: null,
+                revenueByState: {},
+                tax280eExposure: 'None',
+                safeBankingImpact: 'None',
+                estimated280eTaxBurden: 0,
+                status: 'Canadian',
+                description: 'Cannabis retail + accessories. Canna Cabana brand.',
+            },
+        ];
+
+        // Helper functions
+        const formatMarketCap = (mcap) => {
+            if (mcap >= 1000) return `$${(mcap / 1000).toFixed(1)}B`;
+            return `$${mcap}M`;
+        };
+
+        const calculateCBDTScore = (states) => {
+            if (!states || states.length === 0) return null;
+            const scores = states.map(s => CBDT_STATE_DATA[s]?.deltaU || 0);
+            return scores.reduce((a, b) => a + b, 0) / scores.length;
+        };
+
+        const getReformImpactMultiple = (stock) => {
+            if (stock.country !== 'US' || stock.type === 'Ancillary') return null;
+            const taxBurden = stock.estimated280eTaxBurden || 0;
+            const currentEBITDA = (stock.revenue * (stock.ebitdaMargin / 100));
+            const potentialEarningsIncrease = taxBurden * 0.7;
+            if (currentEBITDA <= 0) return 'N/A';
+            const multiple = 1 + (potentialEarningsIncrease / currentEBITDA);
+            return multiple > 1 ? multiple.toFixed(1) + 'x' : 'N/A';
+        };
+
+        // Badge Components
+        const TercileBadge = ({ tercile }) => {
+            const colors = {
+                'Top': 'bg-emerald-900/50 text-emerald-300 border-emerald-600/40',
+                'Mid': 'bg-amber-900/40 text-amber-300 border-amber-600/40',
+                'Bottom': 'bg-red-900/40 text-red-300 border-red-600/40',
+            };
+            return (
+                <span className={`px-2 py-0.5 text-xs font-medium rounded border ${colors[tercile] || 'bg-gray-800 text-gray-400'}`}>
+                    {tercile}
+                </span>
+            );
+        };
+
+        const ImpactBadge = ({ level, label }) => {
+            const colors = {
+                'High': 'bg-gradient-to-r from-green-900/60 to-emerald-900/60 text-green-300 border-green-500/40',
+                'Moderate': 'bg-gradient-to-r from-yellow-900/50 to-amber-900/50 text-yellow-300 border-yellow-500/40',
+                'Low': 'bg-gray-800/60 text-gray-400 border-gray-600/40',
+                'None': 'bg-gray-900/40 text-gray-500 border-gray-700/40',
+                'Indirect': 'bg-blue-900/40 text-blue-400 border-blue-600/40',
+            };
+            return (
+                <span className={`px-2 py-0.5 text-xs font-semibold rounded border ${colors[level] || colors['None']}`}>
+                    {label || level}
+                </span>
+            );
+        };
+
+        const StatusBadge = ({ status }) => {
+            const styles = {
+                '280E Revolt': 'bg-purple-900/50 text-purple-300 border-purple-500/40',
+                'Compliant': 'bg-gray-800/60 text-gray-400 border-gray-600/40',
+                'Canadian': 'bg-red-950/50 text-red-300 border-red-700/40',
+                'Distressed': 'bg-orange-950/60 text-orange-300 border-orange-600/40',
+                'International': 'bg-blue-900/40 text-blue-400 border-blue-600/40',
+            };
+            return (
+                <span className={`px-2 py-0.5 text-xs font-medium rounded border ${styles[status] || styles['Compliant']}`}>
+                    {status}
+                </span>
+            );
+        };
+
+        // Stock Card Component  
+        const StockCard = ({ stock, livePrice, expanded, onToggle }) => {
+            const cbdtScore = calculateCBDTScore(stock.states);
+            const reformMultiple = getReformImpactMultiple(stock);
+            
+            return (
+                <div className="bg-gradient-to-br from-gray-900/95 via-gray-900/90 to-gray-950/95 border border-gray-700/50 rounded-xl overflow-hidden hover:border-gray-600/60 transition-all duration-300 shadow-xl shadow-black/20">
+                    <div className="p-3 sm:p-4 cursor-pointer group" onClick={onToggle}>
+                        <div className="flex items-start justify-between">
+                            <div className="flex items-start gap-2 sm:gap-4 flex-1 min-w-0">
+                                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700/60 flex items-center justify-center flex-shrink-0">
+                                    <span className="text-xs sm:text-sm font-bold text-gray-200 tracking-tight">{stock.ticker.slice(0, 4)}</span>
+                                </div>
+                                
+                                <div className="flex-1 min-w-0 overflow-hidden">
+                                    <div className="flex items-center gap-2">
+                                        <h3 className="text-base sm:text-lg font-semibold text-gray-100 truncate max-w-[140px] sm:max-w-none">{stock.name}</h3>
+                                    </div>
+                                    <div className="flex items-center gap-2 mt-1 flex-wrap">
+                                        <span className="text-xs text-gray-500 font-mono">{stock.ticker}</span>
+                                        <span className="text-gray-700">•</span>
+                                        <span className="text-xs text-gray-500">{stock.type}</span>
+                                        <StatusBadge status={stock.status} />
+                                    </div>
+                                    <p className="text-xs text-gray-500 mt-2 line-clamp-1 group-hover:line-clamp-none transition-all hidden sm:block">
+                                        {stock.description}
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div className="flex flex-col items-end gap-1 flex-shrink-0 ml-2">
+                                {/* Live Price Display */}
+                                {livePrice ? (
+                                    <div className="text-right">
+                                        <div className="flex items-center gap-1 sm:gap-2">
+                                            <span className="text-lg sm:text-xl font-bold text-gray-100 font-mono">
+                                                ${livePrice.price.toFixed(2)}
+                                            </span>
+                                            <span className={`text-xs sm:text-sm font-semibold ${livePrice.changePercent >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                                {livePrice.changePercent >= 0 ? '+' : ''}{livePrice.changePercent?.toFixed(2)}%
+                                            </span>
+                                        </div>
+                                        <div className="text-xs text-gray-500">
+                                            {livePrice.changePercent >= 0 ? '▲' : '▼'} ${Math.abs(livePrice.change || 0).toFixed(2)} today
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="text-right">
+                                        <div className="text-lg sm:text-xl font-bold text-gray-100">{formatMarketCap(stock.marketCap)}</div>
+                                        <div className="text-xs text-gray-500">Market Cap</div>
+                                    </div>
+                                )}
+                                <svg className={`w-5 h-5 text-gray-500 transition-transform ${expanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-800/60">
+                            <div>
+                                <div className="text-xs text-gray-500 mb-1">Revenue</div>
+                                <div className="text-sm font-semibold text-gray-200">${stock.revenue}M</div>
+                            </div>
+                            <div>
+                                <div className="text-xs text-gray-500 mb-1">Gross %</div>
+                                <div className="text-sm font-semibold text-gray-200">{stock.grossMargin}%</div>
+                            </div>
+                            <div>
+                                <div className="text-xs text-gray-500 mb-1">280E</div>
+                                <ImpactBadge level={stock.tax280eExposure} />
+                            </div>
+                            <div>
+                                <div className="text-xs text-gray-500 mb-1">Upside</div>
+                                <div className="text-sm font-bold text-emerald-400">{reformMultiple || 'N/A'}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {expanded && (
+                        <div className="px-4 pb-4 space-y-4 border-t border-gray-800/60">
+                            {/* Live Price Details (if available) */}
+                            {livePrice && (
+                                <div className="grid grid-cols-4 gap-4 pt-4 bg-gray-800/30 rounded-lg p-3 -mx-0">
+                                    <div>
+                                        <div className="text-xs text-gray-500 mb-1">Open</div>
+                                        <div className="text-sm font-semibold text-gray-200 font-mono">${livePrice.open?.toFixed(2)}</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-xs text-gray-500 mb-1">Day High</div>
+                                        <div className="text-sm font-semibold text-emerald-400 font-mono">${livePrice.high?.toFixed(2)}</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-xs text-gray-500 mb-1">Day Low</div>
+                                        <div className="text-sm font-semibold text-red-400 font-mono">${livePrice.low?.toFixed(2)}</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-xs text-gray-500 mb-1">Prev Close</div>
+                                        <div className="text-sm font-semibold text-gray-200 font-mono">${livePrice.prevClose?.toFixed(2)}</div>
+                                    </div>
+                                </div>
+                            )}
+                            
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
+                                <div className="bg-gray-800/40 rounded-lg p-3">
+                                    <div className="text-xs text-gray-500 mb-1">Market Cap</div>
+                                    <div className="text-lg font-bold text-gray-100">{formatMarketCap(stock.marketCap)}</div>
+                                </div>
+                                <div className="bg-gray-800/40 rounded-lg p-3">
+                                    <div className="text-xs text-gray-500 mb-1">EBITDA Margin</div>
+                                    <div className={`text-lg font-bold ${stock.ebitdaMargin > 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                        {stock.ebitdaMargin}%
+                                    </div>
+                                </div>
+                                <div className="bg-gray-800/40 rounded-lg p-3">
+                                    <div className="text-xs text-gray-500 mb-1">Free Cash Flow</div>
+                                    <div className={`text-lg font-bold ${stock.cashFlow > 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                                        ${stock.cashFlow}M
+                                    </div>
+                                </div>
+                                <div className="bg-gray-800/40 rounded-lg p-3">
+                                    <div className="text-xs text-gray-500 mb-1">Total Debt</div>
+                                    <div className="text-lg font-bold text-gray-200">${stock.debt}M</div>
+                                </div>
+                                <div className="bg-gray-800/40 rounded-lg p-3">
+                                    <div className="text-xs text-gray-500 mb-1">Est. 280E Burden</div>
+                                    <div className={`text-lg font-bold ${stock.estimated280eTaxBurden > 0 ? 'text-red-400' : 'text-gray-400'}`}>
+                                        ${stock.estimated280eTaxBurden}M
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {stock.states && stock.states.length > 0 && (
+                                <div className="bg-gray-800/30 rounded-lg p-4">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        </svg>
+                                        <span className="text-sm font-semibold text-gray-300">State Footprint & CBDT Analysis</span>
+                                    </div>
+                                    
+                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                        {stock.states.slice(0, 8).map(state => {
+                                            const stateData = CBDT_STATE_DATA[state];
+                                            return (
+                                                <div key={state} className="bg-gray-900/60 rounded-lg p-2 border border-gray-700/40">
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="text-xs font-medium text-gray-300">{state}</span>
+                                                        {stateData && <TercileBadge tercile={stateData.tercile} />}
+                                                    </div>
+                                                    {stateData && (
+                                                        <div className="mt-1 text-xs text-gray-500">
+                                                            ΔU: {stateData.deltaU.toFixed(2)} | {stateData.predicted}% pred
+                                                        </div>
+                                                    )}
+                                                    {stock.revenueByState[state] && (
+                                                        <div className="mt-1 text-xs text-emerald-400 font-medium">
+                                                            {stock.revenueByState[state]}% revenue
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                    
+                                    {stock.states.length > 8 && (
+                                        <div className="text-xs text-gray-500 mt-2">
+                                            +{stock.states.length - 8} more states
+                                        </div>
+                                    )}
+                                    
+                                    {cbdtScore && (
+                                        <div className="mt-3 pt-3 border-t border-gray-700/40 flex items-center gap-4">
+                                            <div>
+                                                <span className="text-xs text-gray-500">Avg CBDT Score (ΔU): </span>
+                                                <span className={`text-sm font-bold ${cbdtScore > 1 ? 'text-emerald-400' : cbdtScore > 0 ? 'text-amber-400' : 'text-red-400'}`}>
+                                                    {cbdtScore.toFixed(2)}
+                                                </span>
+                                            </div>
+                                            <div className="text-xs text-gray-600">
+                                                Higher ΔU = Better legal market capture (r=0.968 validated)
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                            
+                            {stock.country === 'US' && stock.type !== 'Ancillary' && (
+                                <div className="bg-gradient-to-r from-emerald-950/30 to-green-950/30 rounded-lg p-4 border border-emerald-800/30">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                        </svg>
+                                        <span className="text-sm font-semibold text-emerald-300">Federal Reform Impact Analysis</span>
+                                    </div>
+                                    
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <div className="text-xs text-gray-400 mb-1">280E Elimination Impact</div>
+                                            <ImpactBadge level={stock.tax280eExposure} label={`${stock.tax280eExposure} - $${stock.estimated280eTaxBurden}M/yr savings`} />
+                                        </div>
+                                        <div>
+                                            <div className="text-xs text-gray-400 mb-1">SAFE Banking Impact</div>
+                                            <ImpactBadge level={stock.safeBankingImpact} label={`${stock.safeBankingImpact} - Lower cost of capital`} />
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="mt-3 text-xs text-gray-400">
+                                        <span className="text-emerald-400 font-medium">Estimated Earnings Impact: </span>
+                                        280E elimination could add ${stock.estimated280eTaxBurden}M annually to operating income, 
+                                        translating to {reformMultiple} P/E expansion potential.
+                                    </div>
+                                </div>
+                            )}
+                            
+                            {stock.country === 'Canada' && (
+                                <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/40">
+                                    <div className="flex items-center gap-2">
+                                        <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                        </svg>
+                                        <span className="text-sm text-amber-400">No 280E / SAFE Banking Impact</span>
+                                    </div>
+                                    <p className="text-xs text-gray-500 mt-2">
+                                        Canadian LPs operate in federally legal markets and have no exposure to US 280E tax penalties or banking restrictions.
+                                        Federal reform catalysts (280E elimination, SAFE Banking) provide no direct valuation benefit to this company.
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        // Stats Header
+        const StatsHeader = ({ stocks }) => {
+            const usMSOs = stocks.filter(s => s.type === 'US MSO');
+            const canadianLPs = stocks.filter(s => s.type === 'Canadian LP');
+            const total280eBurden = usMSOs.reduce((acc, s) => acc + (s.estimated280eTaxBurden || 0), 0);
+            const totalMarketCap = stocks.reduce((acc, s) => acc + s.marketCap, 0);
+            
+            return (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div className="bg-gradient-to-br from-emerald-950/40 to-green-950/30 border border-emerald-800/30 rounded-xl p-4">
+                        <div className="text-xs text-emerald-400 mb-1">🏢 US MSOs</div>
+                        <div className="text-2xl font-bold text-gray-100">{usMSOs.length}</div>
+                        <div className="text-xs text-gray-500">280E/SAFE impacted</div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-red-950/30 to-rose-950/20 border border-red-800/30 rounded-xl p-4">
+                        <div className="text-xs text-red-400 mb-1">🍁 Canadian LPs</div>
+                        <div className="text-2xl font-bold text-gray-100">{canadianLPs.length}</div>
+                        <div className="text-xs text-gray-500">No reform impact</div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-purple-950/30 to-violet-950/20 border border-purple-800/30 rounded-xl p-4">
+                        <div className="text-xs text-purple-400 mb-1">💰 Est. 280E Burden</div>
+                        <div className="text-2xl font-bold text-gray-100">${total280eBurden}M</div>
+                        <div className="text-xs text-gray-500">Annual excess taxes</div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-blue-950/30 to-indigo-950/20 border border-blue-800/30 rounded-xl p-4">
+                        <div className="text-xs text-blue-400 mb-1">📈 Total Market Cap</div>
+                        <div className="text-2xl font-bold text-gray-100">{formatMarketCap(totalMarketCap)}</div>
+                        <div className="text-xs text-gray-500">Combined coverage</div>
+                    </div>
+                </div>
+            );
+        };
+
+        // Filter Panel
+        const FilterPanel = ({ filters, setFilters }) => (
+            <div className="bg-gray-900/80 border border-gray-700/50 rounded-xl p-4 mb-6">
+                <div className="flex items-center gap-2 mb-4">
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                    </svg>
+                    <span className="text-sm font-semibold text-gray-300">Filters</span>
+                </div>
+                
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div>
+                        <label className="text-xs text-gray-500 mb-1 block">Company Type</label>
+                        <select 
+                            value={filters.type}
+                            onChange={(e) => setFilters({...filters, type: e.target.value})}
+                            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-emerald-500"
+                        >
+                            <option value="all">All Types</option>
+                            <option value="US MSO">US MSOs Only</option>
+                            <option value="Canadian LP">Canadian LPs Only</option>
+                            <option value="International">International</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label className="text-xs text-gray-500 mb-1 block">280E Exposure</label>
+                        <select 
+                            value={filters.tax280e}
+                            onChange={(e) => setFilters({...filters, tax280e: e.target.value})}
+                            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-emerald-500"
+                        >
+                            <option value="all">All Levels</option>
+                            <option value="High">High Exposure</option>
+                            <option value="Moderate">Moderate Exposure</option>
+                            <option value="None">No Exposure</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label className="text-xs text-gray-500 mb-1 block">Market Cap</label>
+                        <select 
+                            value={filters.marketCap}
+                            onChange={(e) => setFilters({...filters, marketCap: e.target.value})}
+                            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-emerald-500"
+                        >
+                            <option value="all">All Sizes</option>
+                            <option value="large">Large ($1B+)</option>
+                            <option value="mid">Mid ($200M-$1B)</option>
+                            <option value="small">Small (&lt;$200M)</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label className="text-xs text-gray-500 mb-1 block">Sort By</label>
+                        <select 
+                            value={filters.sortBy}
+                            onChange={(e) => setFilters({...filters, sortBy: e.target.value})}
+                            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-emerald-500"
+                        >
+                            <option value="marketCap">Market Cap</option>
+                            <option value="revenue">Revenue</option>
+                            <option value="280eBurden">280E Burden</option>
+                            <option value="cbdtScore">CBDT Score</option>
+                            <option value="ebitda">EBITDA Margin</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        );
+
+        // Main App
+        function App() {
+            const [filters, setFilters] = useState({
+                type: 'all',
+                tax280e: 'all',
+                marketCap: 'all',
+                sortBy: 'marketCap'
+            });
+            const [expandedStock, setExpandedStock] = useState(null);
+            const [showInfo, setShowInfo] = useState(false);
+            const [livePrices, setLivePrices] = useState({});
+            const [priceLoading, setPriceLoading] = useState(false);
+            const [lastUpdated, setLastUpdated] = useState(null);
+            const [priceError, setPriceError] = useState(null);
+            
+            // Fetch prices using Finnhub (supports OTC stocks)
+            const fetchPrices = async () => {
+                // Check cache first
+                if (priceCache.isValid()) {
+                    setLivePrices(priceCache.data);
+                    setLastUpdated(new Date(priceCache.timestamp));
+                    return;
+                }
+                
+                setPriceLoading(true);
+                setPriceError(null);
+                
+                const prices = {};
+                const tickers = CANNABIS_STOCKS.map(s => s.ticker);
+                
+                try {
+                    // Fetch prices with small delays to avoid rate limits
+                    for (const ticker of tickers) {
+                        try {
+                            const response = await fetch(
+                                `${FINNHUB_BASE_URL}/quote?symbol=${ticker}&token=${FINNHUB_API_KEY}`
+                            );
+                            
+                            if (response.ok) {
+                                const data = await response.json();
+                                
+                                // Finnhub returns: c (current), d (change), dp (% change), h (high), l (low), o (open), pc (prev close)
+                                if (data.c && data.c > 0) {
+                                    prices[ticker] = {
+                                        price: data.c,
+                                        change: data.d || 0,
+                                        changePercent: data.dp || 0,
+                                        high: data.h || 0,
+                                        low: data.l || 0,
+                                        open: data.o || 0,
+                                        prevClose: data.pc || 0
+                                    };
+                                }
+                            }
+                            
+                            // Small delay between requests
+                            await new Promise(resolve => setTimeout(resolve, 100));
+                        } catch (err) {
+                            console.warn(`Failed to fetch ${ticker}:`, err);
+                        }
+                    }
+                    
+                    // Update cache
+                    priceCache.data = prices;
+                    priceCache.timestamp = Date.now();
+                    
+                    setLivePrices(prices);
+                    setLastUpdated(new Date());
+                } catch (err) {
+                    setPriceError('Failed to fetch prices. Please refresh.');
+                    console.error('Price fetch error:', err);
+                } finally {
+                    setPriceLoading(false);
+                }
+            };
+            
+            // Fetch prices on mount and every 5 minutes
+            useEffect(() => {
+                fetchPrices();
+                const interval = setInterval(fetchPrices, CACHE_DURATION);
+                return () => clearInterval(interval);
+            }, []);
+            
+            const filteredStocks = useMemo(() => {
+                let result = [...CANNABIS_STOCKS];
+                
+                if (filters.type !== 'all') {
+                    result = result.filter(s => s.type === filters.type);
+                }
+                
+                if (filters.tax280e !== 'all') {
+                    result = result.filter(s => s.tax280eExposure === filters.tax280e);
+                }
+                
+                if (filters.marketCap !== 'all') {
+                    if (filters.marketCap === 'large') {
+                        result = result.filter(s => s.marketCap >= 1000);
+                    } else if (filters.marketCap === 'mid') {
+                        result = result.filter(s => s.marketCap >= 200 && s.marketCap < 1000);
+                    } else if (filters.marketCap === 'small') {
+                        result = result.filter(s => s.marketCap < 200);
+                    }
+                }
+                
+                result.sort((a, b) => {
+                    switch (filters.sortBy) {
+                        case 'marketCap':
+                            return b.marketCap - a.marketCap;
+                        case 'revenue':
+                            return b.revenue - a.revenue;
+                        case '280eBurden':
+                            return (b.estimated280eTaxBurden || 0) - (a.estimated280eTaxBurden || 0);
+                        case 'cbdtScore':
+                            const scoreA = calculateCBDTScore(a.states) || -999;
+                            const scoreB = calculateCBDTScore(b.states) || -999;
+                            return scoreB - scoreA;
+                        case 'ebitda':
+                            return b.ebitdaMargin - a.ebitdaMargin;
+                        default:
+                            return b.marketCap - a.marketCap;
+                    }
+                });
+                
+                return result;
+            }, [filters]);
+
+            return (
+                <div className="min-h-screen text-gray-100">
+                    {/* Background */}
+                    <div className="fixed inset-0 opacity-30">
+                        <div className="absolute inset-0" style={{
+                            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+                                             radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.05) 0%, transparent 50%)`,
+                        }} />
+                    </div>
+                    
+                    <div className="relative max-w-7xl mx-auto px-4 py-8">
+                        {/* Header */}
+                        <div className="mb-8">
+                            <div className="flex items-center justify-between mb-2">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-green-700 flex items-center justify-center shadow-lg shadow-emerald-900/30">
+                                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h1 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent">
+                                            STONKS
+                                        </h1>
+                                        <p className="text-xs text-gray-500">stonks.dankreports.com</p>
+                                    </div>
+                                </div>
+                                
+                                <button 
+                                    onClick={() => setShowInfo(true)}
+                                    className="flex items-center gap-2 px-4 py-2 bg-gray-800/60 hover:bg-gray-700/60 border border-gray-700 rounded-lg text-sm text-gray-300 transition-colors"
+                                >
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    CBDT Framework
+                                </button>
+                            </div>
+                            
+                            {/* Mispricing Thesis */}
+                            <div className="bg-gradient-to-r from-amber-950/40 via-orange-950/30 to-red-950/30 border border-amber-700/40 rounded-xl p-4 mb-4">
+                                <div className="flex items-start gap-3">
+                                    <div className="w-8 h-8 rounded-lg bg-amber-900/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h2 className="text-sm font-bold text-amber-300 mb-1">The Mispricing Problem</h2>
+                                        <p className="text-xs text-gray-400 leading-relaxed">
+                                            <strong className="text-amber-200">Canadian LPs often rally on US federal reform news—but they receive zero benefit.</strong> When Schedule III eliminates 280E, 
+                                            US MSOs save $2+ billion annually in excess taxes. Canadian LPs save $0. When SAFE Banking passes, US MSOs gain traditional banking access. 
+                                            Canadian LPs already have this. This screener exposes which companies <em>actually</em> benefit from reform versus which are riding momentum disconnected from fundamentals.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p className="text-gray-400 max-w-3xl">
+                                Cannabis stock screener with 280E / SAFE Banking impact analysis and 
+                                state-level market scoring using the validated CBDT Framework (r=0.968). US MSOs benefit from federal reform. Canadian LPs do not.
+                            </p>
+                        </div>
+                        
+                        {/* Live Price Status Bar */}
+                        <div className="flex items-center justify-between mb-4 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg">
+                            <div className="flex items-center gap-3">
+                                {priceLoading ? (
+                                    <span className="flex items-center gap-2 text-xs text-amber-400">
+                                        <svg className="w-3 h-3 animate-spin" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        Fetching live prices...
+                                    </span>
+                                ) : Object.keys(livePrices).length > 0 ? (
+                                    <span className="flex items-center gap-2 text-xs text-emerald-400">
+                                        <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                                        Live prices active
+                                    </span>
+                                ) : (
+                                    <span className="text-xs text-gray-500">
+                                        {priceError || 'Prices not loaded'}
+                                    </span>
+                                )}
+                            </div>
+                            <div className="flex items-center gap-3">
+                                {lastUpdated && (
+                                    <span className="text-xs text-gray-500">
+                                        Updated: {lastUpdated.toLocaleTimeString()}
+                                    </span>
+                                )}
+                                <button 
+                                    onClick={fetchPrices}
+                                    disabled={priceLoading}
+                                    className="text-xs text-emerald-500 hover:text-emerald-400 disabled:text-gray-600"
+                                >
+                                    Refresh
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <StatsHeader stocks={filteredStocks} />
+                        <FilterPanel filters={filters} setFilters={setFilters} />
+                        
+                        <div className="space-y-4">
+                            {filteredStocks.map(stock => (
+                                <StockCard 
+                                    key={stock.ticker}
+                                    stock={stock}
+                                    livePrice={livePrices[stock.ticker]}
+                                    expanded={expandedStock === stock.ticker}
+                                    onToggle={() => setExpandedStock(expandedStock === stock.ticker ? null : stock.ticker)}
+                                />
+                            ))}
+                        </div>
+                        
+                        {filteredStocks.length === 0 && (
+                            <div className="text-center py-12 text-gray-500">
+                                No stocks match the selected filters
+                            </div>
+                        )}
+                        
+                        {/* Footer */}
+                        <div className="mt-12 pt-8 border-t border-gray-800/60 text-center">
+                            <p className="text-xs text-gray-600">
+                                Data for informational purposes only. Not financial advice. 
+                                CBDT Framework developed by Daniel Kief (CC BY 4.0).
+                            </p>
+                            <div className="mt-2 flex items-center justify-center gap-4 text-xs">
+                                <a href="https://www.dankreports.com" className="text-emerald-500 hover:text-emerald-400">
+                                    dankreports.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* Info Modal */}
+                    {showInfo && (
+                        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                            <div className="bg-gray-900 border border-gray-700 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+                                <div className="p-6">
+                                    <div className="flex items-center justify-between mb-4">
+                                        <h2 className="text-xl font-bold text-gray-100">About CBDT Framework</h2>
+                                        <button onClick={() => setShowInfo(false)} className="p-2 hover:bg-gray-800 rounded-lg">
+                                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <div className="space-y-4 text-sm text-gray-300">
+                                        <p>
+                                            The <strong className="text-emerald-400">Consumer-Driven Black Market Displacement Theory (CBDT)</strong> is a 
+                                            proprietary framework developed by Daniel Kief for predicting legal cannabis market share.
+                                        </p>
+                                        
+                                        <div className="bg-gray-800/50 rounded-lg p-4 font-mono text-xs">
+                                            <div className="text-emerald-400 mb-2">Formula:</div>
+                                            <div>ΔU = 4(−g) + D + 1.2S + F + 0.6E − 0.8F_frag</div>
+                                            <div className="mt-2 text-gray-500">Legal Share = 1 / (1 + e^(−ΔU))</div>
+                                        </div>
+                                        
+                                        <div>
+                                            <div className="font-semibold text-gray-200 mb-2">Variables:</div>
+                                            <ul className="space-y-1 text-gray-400 text-xs">
+                                                <li><strong>g:</strong> Price gap (legal vs illicit, quality-adjusted)</li>
+                                                <li><strong>D:</strong> Retail density + delivery access</li>
+                                                <li><strong>S:</strong> Safety/testing standards</li>
+                                                <li><strong>F:</strong> Convenience (banking, hours, digital)</li>
+                                                <li><strong>E:</strong> Supply-side enforcement intensity</li>
+                                                <li><strong>F_frag:</strong> Local ban fragmentation penalty</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div className="bg-emerald-950/30 border border-emerald-800/30 rounded-lg p-4">
+                                            <div className="text-emerald-400 font-semibold mb-2">Validation:</div>
+                                            <ul className="text-gray-400 space-y-1 text-xs">
+                                                <li>• Correlation r = 0.968 across 24 states</li>
+                                                <li>• Mean Absolute Error: 5%</li>
+                                                <li>• Directional Accuracy: 87.5% (21/24)</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <p className="text-gray-500 text-xs">
+                                            Learn more at <a href="https://www.dankreports.com" className="text-emerald-400 hover:underline">dankreports.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+        
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
