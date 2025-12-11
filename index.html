@@ -226,15 +226,15 @@
         const { useState, useMemo, useEffect } = React;
         
         // ============================================
-        // FINNHUB API CONFIGURATION
+        // TWELVE DATA API CONFIGURATION
         // ============================================
-        // Get your free API key at: https://finnhub.io/
-        // Free tier: 60 calls/minute (plenty for 25 stocks)
-        const FINNHUB_API_KEY = 'd4stah9r01qhr5tmvm30d4stah9r01qhr5tmvm3g';
-        const FINNHUB_BASE_URL = 'https://finnhub.io/api/v1';
+        // Get your free API key at: https://twelvedata.com/apikey
+        // Free tier: 800 calls/day (perfect for 25 stocks with 15-min refresh)
+        const TWELVE_DATA_API_KEY = '67b4d4f21cc422dadb5f9e787f8cca7';
+        const TWELVE_DATA_BASE_URL = 'https://api.twelvedata.com';
         
-        // Cache duration in milliseconds (5 minutes)
-        const CACHE_DURATION = 5 * 60 * 1000;
+        // Cache duration in milliseconds (15 minutes)
+        const CACHE_DURATION = 15 * 60 * 1000;
         
         // ============================================
         // PRICE DATA CACHE
@@ -1206,10 +1206,10 @@
             const [lastUpdated, setLastUpdated] = useState(null);
             const [priceError, setPriceError] = useState(null);
             
-            // Fetch live prices from Finnhub
+            // Fetch prices with rate limiting (15-min refresh, well under 800/day limit)
             const fetchPrices = async () => {
-                if (FINNHUB_API_KEY === 'YOUR_API_KEY_HERE') {
-                    setPriceError('Add your Finnhub API key to enable live prices');
+                if (TWELVE_DATA_API_KEY === 'YOUR_API_KEY_HERE') {
+                    setPriceError('Add your Twelve Data API key to enable live prices');
                     return;
                 }
                 
@@ -1227,29 +1227,30 @@
                 const tickers = CANNABIS_STOCKS.map(s => s.ticker);
                 
                 try {
-                    // Fetch prices sequentially to respect rate limits
+                    // Fetch prices sequentially with small delay
                     for (const ticker of tickers) {
                         try {
                             const response = await fetch(
-                                `${FINNHUB_BASE_URL}/quote?symbol=${ticker}&token=${FINNHUB_API_KEY}`
+                                `${TWELVE_DATA_BASE_URL}/quote?symbol=${ticker}&apikey=${TWELVE_DATA_API_KEY}`
                             );
                             
                             if (response.ok) {
                                 const data = await response.json();
-                                if (data.c && data.c > 0) {
+                                // Twelve Data returns strings, need to parse to numbers
+                                if (data.close && parseFloat(data.close) > 0) {
                                     prices[ticker] = {
-                                        price: data.c,           // Current price
-                                        change: data.d,          // Change
-                                        changePercent: data.dp,  // Change percent
-                                        high: data.h,            // Day high
-                                        low: data.l,             // Day low
-                                        open: data.o,            // Open
-                                        prevClose: data.pc       // Previous close
+                                        price: parseFloat(data.close),
+                                        change: parseFloat(data.change || 0),
+                                        changePercent: parseFloat(data.percent_change || 0),
+                                        high: parseFloat(data.high || 0),
+                                        low: parseFloat(data.low || 0),
+                                        open: parseFloat(data.open || 0),
+                                        prevClose: parseFloat(data.previous_close || 0)
                                     };
                                 }
                             }
                             
-                            // Small delay to avoid rate limiting (60/min = 1 per second max)
+                            // Small delay to avoid rate limiting (not critical but good practice)
                             await new Promise(resolve => setTimeout(resolve, 100));
                         } catch (err) {
                             console.warn(`Failed to fetch ${ticker}:`, err);
@@ -1270,7 +1271,7 @@
                 }
             };
             
-            // Fetch prices on mount and every 5 minutes
+            // Fetch prices on mount and every 15 minutes
             useEffect(() => {
                 fetchPrices();
                 const interval = setInterval(fetchPrices, CACHE_DURATION);
