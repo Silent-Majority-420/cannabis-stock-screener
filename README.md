@@ -24,7 +24,7 @@ This screener helps investors identify which companies *actually* benefit from r
 
 - **25 Cannabis Stocks** tracked across US MSOs, Canadian LPs, and International operators
 - **280E Tax Burden Estimates** for each US MSO ($604M combined annual burden)
-- **CBDT Framework Scoring** - State-level market quality analysis (r=0.968 validated)
+- **BMDE Framework Scoring** - State-level market quality analysis (r=0.968 validated)
 - **Reform Upside Multiples** - Estimated P/E expansion from 280E elimination
 - **Canadian LP Warnings** - Clear callouts when companies have no reform exposure
 - **Filtering & Sorting** - By company type, 280E exposure, market cap, CBDT score
@@ -40,14 +40,14 @@ TLRY, CGC, ACB, CRON, SNDL, VFF, OGI, HITI, LOVFF, CBWTF
 ### International
 INCR
 
-## CBDT Framework
+## BMDE Framework
 
-The Consumer-Driven Black Market Displacement Theory is a validated predictive framework for legal cannabis market share.
+The Black Market Death Equation is a validated predictive framework for legal cannabis market share.
 
 **Formula:** `ΔU = 4(−g) + D + 1.2S + F + 0.6E − 0.8F_frag`
 
 **Validation:**
-- Correlation: r = 0.968 across 24 US states
+- Correlation: r = 0.968 across 6 US states
 - Mean Absolute Error: 5%
 - Directional Accuracy: 87.5% (21/24)
 
